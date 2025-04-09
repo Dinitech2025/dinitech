@@ -1,46 +1,74 @@
-# Getting Started with Create React App
+# DiniTech - Plateforme de Streaming
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Une application web moderne pour la gestion de services de streaming, développée avec React et TypeScript.
 
-## Available Scripts
+## Fonctionnalités
 
-In the project directory, you can run:
+- 🔐 Authentification sécurisée
+- 📊 Tableau de bord administratif
+- 🎥 Gestion des plateformes de streaming
+- 💰 Gestion des offres et abonnements
+- 👥 Gestion des utilisateurs et profils
+- ⚙️ Paramètres personnalisables
 
-### `npm start`
+## Technologies utilisées
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React
+- TypeScript
+- Tailwind CSS
+- Node.js
+- Prisma
+- PostgreSQL
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. Clonez le dépôt :
+```bash
+git clone https://github.com/votre-username/dinitech.git
+cd dinitech
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Installez les dépendances :
+```bash
+npm install
+```
 
-### `npm run build`
+3. Configurez les variables d'environnement :
+```bash
+cp .env.example .env
+```
+Puis modifiez le fichier `.env` avec vos paramètres.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Lancez les migrations de la base de données :
+```bash
+npx prisma migrate dev
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. Démarrez l'application :
+```bash
+npm run dev
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Structure du projet
 
-### `npm run eject`
+```
+src/
+  components/
+    admin/           # Composants de l'interface d'administration
+    auth/            # Composants d'authentification
+    common/          # Composants réutilisables
+  context/          # Contextes React (auth, theme, etc.)
+  pages/            # Pages principales de l'application
+  services/         # Services (API, auth, etc.)
+  styles/           # Styles globaux
+  types/           # Types TypeScript
+  utils/           # Fonctions utilitaires
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contribution
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou à soumettre une pull request.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Licence
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+MIT
