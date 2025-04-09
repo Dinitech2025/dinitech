@@ -1,2 +1,10 @@
 # Ignorer les fichiers générés par Prisma
-src/generated/**/* 
+src/generated/**/*
+src/generated
+
+# Ignorer les fichiers de build
+build/
+dist/
+
+# Ignorer node_modules
+node_modules/ 
