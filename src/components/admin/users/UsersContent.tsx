@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getUsers, disconnectPrisma } from '../../../services/api';
+import { getUsers } from '../../../services/api';
 
 interface User {
   id: number | string;
@@ -20,6 +20,7 @@ const UsersContent: React.FC = () => {
         setLoading(true);
         setError(null);
         
+        console.log("UsersContent: Récupération des utilisateurs...");
         const userData = await getUsers();
         console.log("Données utilisateurs récupérées:", userData);
         setUsers(userData as User[]);

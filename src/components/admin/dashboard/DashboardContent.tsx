@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getDashboardStats, IDashboardStats, disconnectPrisma } from '../../../services/api';
+import { getDashboardStats, IDashboardStats } from '../../../services/api';
 
 const DashboardContent: React.FC = () => {
   const [stats, setStats] = useState<IDashboardStats>({
@@ -17,6 +17,7 @@ const DashboardContent: React.FC = () => {
         setLoading(true);
         setError(null);
         
+        console.log("DashboardContent: Récupération des données...");
         const dashboardStats = await getDashboardStats();
         console.log("Données du tableau de bord récupérées:", dashboardStats);
         setStats(dashboardStats);

@@ -16,6 +16,7 @@ export interface IDashboardStats {
 // Méthode pour récupérer les statistiques du tableau de bord
 export const getDashboardStats = async (): Promise<IDashboardStats> => {
   try {
+    console.log("API: Récupération des statistiques du tableau de bord");
     // Utiliser le contrôleur pour récupérer les vraies données
     return await dashboardController.getDashboardStats();
   } catch (error) {
@@ -27,6 +28,7 @@ export const getDashboardStats = async (): Promise<IDashboardStats> => {
 // Méthode pour récupérer les utilisateurs
 export const getUsers = async () => {
   try {
+    console.log("API: Récupération des utilisateurs");
     // Utiliser le contrôleur pour récupérer les vraies données
     return await userController.getUsers();
   } catch (error) {
@@ -37,6 +39,6 @@ export const getUsers = async () => {
 
 // Méthode pour le nettoyage (non utilisée dans cette version)
 export const disconnectPrisma = async () => {
-  // Cette fonction ne fait plus rien car nous utilisons un singleton Prisma
-  // qui est géré au niveau de l'application
+  // Cette fonction ne fait rien car nous n'utilisons plus Prisma directement
+  console.log("API: disconnectPrisma appelé (ne fait rien)");
 }; 
