@@ -1,0 +1,15 @@
+[build]
+  command = "CI=false npm install --legacy-peer-deps && npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "18.18.0"
+  NPM_VERSION = "9.8.1"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200 
