@@ -15,8 +15,10 @@ const DashboardContent: React.FC = () => {
     const fetchDashboardData = async () => {
       try {
         setLoading(true);
+        setError(null);
         
         const dashboardStats = await getDashboardStats();
+        console.log("Données du tableau de bord récupérées:", dashboardStats);
         setStats(dashboardStats);
         
         setLoading(false);
@@ -24,9 +26,6 @@ const DashboardContent: React.FC = () => {
         console.error('Erreur lors de la récupération des données:', error);
         setError('Impossible de charger les données du tableau de bord');
         setLoading(false);
-      } finally {
-        // S'assurer que la connexion Prisma est bien fermée
-        await disconnectPrisma();
       }
     };
 
@@ -109,16 +108,22 @@ const DashboardContent: React.FC = () => {
           <h3 className="text-lg font-medium text-gray-900 mb-3">Activité récente</h3>
           <div className="bg-gray-50 shadow overflow-hidden rounded-md">
             <ul className="divide-y divide-gray-200">
-              {stats.recentActivities.map((activity, index) => (
-                <li key={index} className="px-6 py-4">
-                  <div className="flex items-center">
-                    <div className="min-w-0 flex-1">
-                      <p className="text-sm font-medium text-gray-900 truncate">{activity.action}: {activity.description}</p>
-                      <p className="text-sm text-gray-500">{activity.date}</p>
+              {stats.recentActivities.length > 0 ? (
+                stats.recentActivities.map((activity, index) => (
+                  <li key={index} className="px-6 py-4">
+                    <div className="flex items-center">
+                      <div className="min-w-0 flex-1">
+                        <p className="text-sm font-medium text-gray-900 truncate">{activity.action}: {activity.description}</p>
+                        <p className="text-sm text-gray-500">{activity.date}</p>
+                      </div>
                     </div>
-                  </div>
+                  </li>
+                ))
+              ) : (
+                <li className="px-6 py-4 text-center text-gray-500">
+                  Aucune activité récente à afficher
                 </li>
-              ))}
+              )}
             </ul>
           </div>
         </>

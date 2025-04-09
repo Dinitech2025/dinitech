@@ -18,15 +18,17 @@ const UsersContent: React.FC = () => {
     const fetchUsers = async () => {
       try {
         setLoading(true);
+        setError(null);
+        
         const userData = await getUsers();
+        console.log("Données utilisateurs récupérées:", userData);
         setUsers(userData as User[]);
+        
         setLoading(false);
       } catch (error) {
         console.error('Erreur lors de la récupération des utilisateurs:', error);
         setError('Impossible de charger la liste des utilisateurs');
         setLoading(false);
-      } finally {
-        await disconnectPrisma();
       }
     };
 
